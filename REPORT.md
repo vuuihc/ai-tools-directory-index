@@ -61,7 +61,6 @@ and no rows outside them.
 | 11 | `infrastructure-ops` | 17 | 0.82% |
 | 12 | `security-compliance` | 15 | 0.72% |
 | 13 | `creative-professional` | 12 | 0.58% |
-| — | Remaining 0 categories combined | 0 | 0.00% |
 
 ```sh
 python3 -c 'import json,collections;t=json.load(open("data/tools.json"))["tools"];n=len(t);c=collections.Counter(r["category"] for r in t);print("\n".join(f"{k} {v} {v/n*100:.2f}%" for k,v in c.most_common(15)))'
