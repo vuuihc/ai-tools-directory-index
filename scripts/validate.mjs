@@ -9,7 +9,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const FIELDS = ['id', 'slug', 'name', 'url', 'category', 'pricing', 'tagline'];
+const FIELDS = ['slug', 'name', 'url', 'category', 'pricing', 'tagline'];
 const MIN_ROWS = 1000;
 const TAGLINE_MAX = 160;
 
@@ -94,7 +94,7 @@ for (let index = 0; index < tools.length; index += 1) {
   if (keys.join(',') !== [...FIELDS].sort().join(',')) {
     fail(`${label}: fields are ${keys.join(',')}, expected ${FIELDS.join(',')}`);
   }
-  for (const field of ['id', 'slug', 'name', 'url', 'category', 'tagline']) {
+  for (const field of ['slug', 'name', 'url', 'category', 'tagline']) {
     if (typeof tool[field] !== 'string' || tool[field].trim() === '') {
       fail(`${label}: ${field} is empty or not a string`);
     }
@@ -110,10 +110,6 @@ for (let index = 0; index < tools.length; index += 1) {
   }
   if (typeof tool.category === 'string' && !/^[a-z0-9-]+$/.test(tool.category)) {
     fail(`${label}: category is not a lowercase slug`);
-  }
-  if (typeof tool.id === 'string') {
-    if (ids.has(tool.id)) fail(`${label}: duplicate id`);
-    ids.add(tool.id);
   }
   if (typeof tool.slug === 'string') {
     if (slugs.has(tool.slug)) fail(`${label}: duplicate slug`);

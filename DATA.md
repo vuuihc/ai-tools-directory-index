@@ -4,8 +4,7 @@
 
 | Field | Type | Notes |
 | --- | --- | --- |
-| `id` | string | Opaque internal identifier. Unique per row. |
-| `slug` | string | Public tool path on AIToolbox; unique per row. |
+| `slug` | string | Public tool path on AIToolbox; unique per row — the only key you need to join or de-duplicate. |
 | `name` | string | Tool name. |
 | `url` | string | Public destination URL, `http(s)` only. |
 | `category` | string | One of the site's 12 MECE category keys, or `uncategorized`. |
@@ -25,10 +24,13 @@ Only rows that are live on the public site are eligible. The export then:
   German); an English-only list missed localised rows, so this snapshot was
   also audited by hand and 3 rows were removed on 2026-11-18;
 - drops rows with no usable name, slug, URL, or description;
-- never exports submitter identity, raw submission metadata, review state,
-  internal scores, or unpublished/pending rows.
+- never exports submitter identity, internal database ids (the site's ids can
+  encode the submission timestamp), review state, internal scores, the raw
+  extra fields captured at submission, or unpublished/pending rows.
 
-Current snapshot: **2,072 rows** from 2,157 eligible published slugs.
+Current snapshot: **2,072 rows** from 2,157 eligible published slugs. Rows are
+keyed by `slug`; the internal `id` column was removed on 2026-11-18 because it
+leaked submission timestamps.
 The exporter's `--check-pii` gate reports zero hits on the JSON and CSV.
 
 ## Attribution
