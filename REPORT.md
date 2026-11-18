@@ -18,7 +18,7 @@ the command that reproduces it. Run the commands from the repository root.
 | SHA-256 of `data/tools.csv`, first 12 hex characters | `f9d47e246095` |
 
 ```sh
-python3 -c 'import json;d=json.load(open("data/tools.json"));print(len(d["tools"]),d["meta"]["count"],d["meta"]["generated_at"])' && shasum -a 256 data/tools.json data/tools.csv | cut -c1-12 && date -u +%F
+python3 -c 'import json;d=json.load(open("data/tools.json"));print(len(d["tools"]),d["meta"]["count"],d["meta"]["generated_at"])' && tail -n +2 data/tools.csv | wc -l && shasum -a 256 data/tools.json data/tools.csv | cut -c1-12 && date -u +%F
 ```
 
 ## Field completeness
@@ -96,7 +96,7 @@ those rows may be freemium rather than free-only. Currencies and billing
 periods are not normalized.
 
 ```sh
-python3 -c 'import json,re,collections;t=json.load(open("data/tools.json"))["tools"];M=re.compile(r"(?:[$€£¥₹₩₽₺₪]|USD|EUR|GBP|CAD|AUD|CHF|INR|Rs\.?|R\$)\s*(\d[\d,]*(?:\.\d+)?)|(\d[\d,]*(?:\.\d+)?)\s*(?:USD|EUR|GBP|CAD|AUD|CHF|INR|dollars?|euros?)");F=re.compile(r"(?i)\bfree\b|[$€£¥₹₩₽₺₪]\s*0(?:\.0+)?\b|no cost|open[- ]source");c=collections.Counter("paid" if v and any(float((m.group(1) or m.group(2)).replace(",",""))>0 for m in M.finditer(str(v))) else ("free" if v and F.search(str(v)) else "unknown") for v in (r["pricing"] for r in t));print(len(t),dict(c))'
+python3 -c 'import json,re,collections;t=json.load(open("data/tools.json"))["tools"];M=re.compile(r"(?:[$€£¥₹₩₽₺₪]|USD|EUR|GBP|CAD|AUD|CHF|INR|Rs\.?|R\$)\s*(\d[\d,]*(?:\.\d+)?)|(\d[\d,]*(?:\.\d+)?)\s*(?:USD|EUR|GBP|CAD|AUD|CHF|INR|dollars?|euros?)");F=re.compile(r"(?i)\bfree\b|[$€£¥₹₩₽₺₪]\s*0(?:\.0+)?\b|no cost|open[- ]source");P=re.compile(r"(?i)\b(paid|premium|pro|subscription|upgrade|custom|contact|enterprise)\b");V=[r["pricing"] for r in t];pos=lambda v:bool(v) and any(float((m.group(1) or m.group(2)).replace(",",""))>0 for m in M.finditer(str(v)));c=collections.Counter("paid" if pos(v) else ("free" if v and F.search(str(v)) else "unknown") for v in V);print(len(t),dict(c));print("null",sum(1 for v in V if v is None));print("free_with_paid_word",sum(1 for v in V if v and not pos(v) and F.search(str(v)) and P.search(str(v))))'
 ```
 
 ## What this data does NOT contain
