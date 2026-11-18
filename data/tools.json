@@ -4,7 +4,7 @@
     "source": "https://aitoolbox.fyi",
     "license": "CC BY 4.0",
     "generated_at": "2026-11-18T01:43:59.210Z",
-    "count": 2075,
+    "count": 2072,
     "fields": [
       "id",
       "slug",
@@ -13,7 +13,9 @@
       "category",
       "pricing",
       "tagline"
-    ]
+    ],
+    "audited_at": "2026-11-18T02:50:00Z",
+    "audit_note": "3 adult/sexually-explicit rows removed after manual audit of the 2026-11-18 export"
   },
   "tools": [
     {
@@ -2508,15 +2510,6 @@
       "category": "content-media",
       "pricing": "No pricing information was available; the pricing page returned 'Page not found', while the homepage invites users to 'Start creating for free'.",
       "tagline": "BeatMV is an AI music video generator that turns a song into a beat-synced, AI-directed music video up to 8 minutes long. It accepts MP3 uploads or links from"
-    },
-    {
-      "id": "3b10ef4646105c6110c1e5c12d3eb706f3a8b409b668694c5440c10e750c8298",
-      "slug": "beducated-ai-sex-coach",
-      "name": "Бeducated AI секс-коуч",
-      "url": "https://beducated.com/ai",
-      "category": "content-media",
-      "pricing": null,
-      "tagline": "По статистике, вы не очень довольны своей сексуальной жизнью. Потому что откровенно говоря, большинство людей нет. Наша миссия - изменить это! Beducated"
     },
     {
       "id": "83b8ddabd857b401f9752c25c74996c08b3a94c085e3657385d54daa7a06c596",
@@ -6009,15 +6002,6 @@
       "category": "content-media",
       "pricing": null,
       "tagline": "Работодатели и менеджеры по найму используют системы отслеживания кандидатов (ATS) для фильтрации тысяч резюме, которые они получают для объявления о вакансии"
-    },
-    {
-      "id": "92f189b2a69770f21f4a70e6938fe50877b47e05f7afe2fb9a013bc10ca7548a",
-      "slug": "free-gpt-client-to-help-you-quit-porn-addiction",
-      "name": "Бесплатный клиент GPT для помощи в избавлении от зависимости от порно",
-      "url": "https://quitporn.ai/",
-      "category": "health-wellness",
-      "pricing": null,
-      "tagline": "Бесплатный клиент GPT предназначен для оказания поддержки и руководства лицам, сталкивающимся с зависимостью от порнографии. Он объясняет отрицательное влияние"
     },
     {
       "id": "35dafdcfb47bce1cfda9be1f6e7dbd51c3a7c31949e2fdb15a251accaa24f810",
@@ -14757,15 +14741,6 @@
       "category": "content-media",
       "pricing": null,
       "tagline": "Легко преобразовывать текст, сгенерированный ИИ, в похожий на человеческий, чтобы обойти проверки ИИ."
-    },
-    {
-      "id": "AI-옷벗기기-ko-2024-12-16T06:09:20.220-05:00",
-      "slug": "undressing-ai_app",
-      "name": "AI 옷벗기기",
-      "url": "https://undressing-ai.app",
-      "category": "ai-ml-core",
-      "pricing": null,
-      "tagline": "AI 옷벗기기는 AI 기술을 사용하여 사진에서 옷을 제거하고 업로드된 옷입은 사진에서 현실적인 누드 이미지를 만드는 애플리케이션입니다."
     },
     {
       "id": "Uneed-en-2026-01-12T15:50:46.693+08:00",

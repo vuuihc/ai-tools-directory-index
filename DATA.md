@@ -19,12 +19,16 @@ The dataset is exported from the published tools table behind
 Only rows that are live on the public site are eligible. The export then:
 
 - keeps one row per public slug, preferring the English locale;
-- drops adult content and rows whose public copy contains email/phone wording;
+- drops adult and sexually explicit listings and rows whose public copy
+  contains email/phone wording. The filters match every language present in
+  the catalogue (English, Russian, Chinese, Japanese, Korean, Spanish, French,
+  German); an English-only list missed localised rows, so this snapshot was
+  also audited by hand and 3 rows were removed on 2026-11-18;
 - drops rows with no usable name, slug, URL, or description;
 - never exports submitter identity, raw submission metadata, review state,
   internal scores, or unpublished/pending rows.
 
-Current snapshot: **2,075 rows** from 2,157 eligible published slugs.
+Current snapshot: **2,072 rows** from 2,157 eligible published slugs.
 The exporter's `--check-pii` gate reports zero hits on the JSON and CSV.
 
 ## Attribution
